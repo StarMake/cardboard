@@ -1,5 +1,8 @@
 package edu.nu.cardbord.service;
 
+import java.util.List;
+
+import edu.nu.cardbord.domain.PictureCanvasDTO;
 import edu.nu.cardbord.domain.UserAccountDTO;
 
 /**
@@ -38,5 +41,10 @@ public interface UserAccountService {
 	 * @throws Exception
 	 */
 	void updatePassword(UserAccountDTO userAccount) throws Exception;
+	
+	/**
+	 * 根据账号id获取对应的画板 
+	 */
+	List<PictureCanvasDTO> getByUserAccountId(Long id) throws Exception;
 	
 }

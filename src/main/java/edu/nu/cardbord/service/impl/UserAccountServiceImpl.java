@@ -1,11 +1,16 @@
 package edu.nu.cardbord.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.nu.cardbord.common.util.DateProvider;
+import edu.nu.cardbord.common.util.ObjectUtils;
+import edu.nu.cardbord.dao.PictureCanvasDAO;
 import edu.nu.cardbord.dao.UserAccountDAO;
+import edu.nu.cardbord.domain.PictureCanvasDTO;
 import edu.nu.cardbord.domain.UserAccountDO;
 import edu.nu.cardbord.domain.UserAccountDTO;
 import edu.nu.cardbord.service.UserAccountService;
@@ -23,6 +28,13 @@ public class UserAccountServiceImpl implements UserAccountService {
 	 */
 	@Autowired
 	private UserAccountDAO userAccountDAO;
+	
+	/**
+	 * 画板DAO管理组件
+	 */
+	@Autowired
+	private PictureCanvasDAO canvasDAO;
+	
 	/**
 	 * 日期辅助组件
 	 */
@@ -72,6 +84,15 @@ public class UserAccountServiceImpl implements UserAccountService {
 	public void updatePassword(UserAccountDTO userAccount) throws Exception {
 		userAccount.setGmtModified(dateProvider.getCurrentTime()); 
 		userAccountDAO.updatePassword(userAccount.clone(UserAccountDO.class)); 
+	}
+
+	/**
+	 * 根据账号id获取对应的画板 
+	 */
+	@Override
+	public List<PictureCanvasDTO> getByUserAccountId(Long userAccountId) throws Exception {
+		return ObjectUtils.convertList(canvasDAO.listByUserAccountId(userAccountId),
+				PictureCanvasDTO.class);
 	}
 
 }

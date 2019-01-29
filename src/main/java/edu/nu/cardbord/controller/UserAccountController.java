@@ -1,15 +1,21 @@
 package edu.nu.cardbord.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.nu.cardbord.common.util.ObjectUtils;
+import edu.nu.cardbord.domain.PictureCanvasVO;
 import edu.nu.cardbord.domain.UserAccountDTO;
 import edu.nu.cardbord.domain.UserAccountVO;
 import edu.nu.cardbord.service.UserAccountService;
@@ -77,6 +83,23 @@ public class UserAccountController {
 		} catch (Exception e) {
 			logger.error("error", e); 
 			return false;
+		}
+	}
+	
+	/**
+	 * 获取该用户对应的所有画板
+	 * @param userAccountId
+	 * @return
+	 */
+	@GetMapping("/canvases/{userAccountId}")
+	public List<PictureCanvasVO> listByUserAccountId(@PathVariable("userAccountId") Long userAccountId) {
+		try {
+			return ObjectUtils.convertList(
+					userAccountService.getByUserAccountId(userAccountId), 
+					PictureCanvasVO.class);
+		} catch (Exception e) {
+			logger.error("error", e);
+			return new ArrayList<>();
 		}
 	}
 	
