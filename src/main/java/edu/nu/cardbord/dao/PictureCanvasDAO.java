@@ -13,7 +13,7 @@ public interface PictureCanvasDAO {
 	/**
 	 * 新增一个画布
 	 */
-	void save(PictureCanvasDO canvas) throws Exception;
+	Long save(PictureCanvasDO canvas) throws Exception;
 	
 	/**
 	 * 更新画布信息

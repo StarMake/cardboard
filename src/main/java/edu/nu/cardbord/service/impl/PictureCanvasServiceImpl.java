@@ -91,8 +91,8 @@ public class PictureCanvasServiceImpl implements PictureCanvasService {
 	 * 新建一个canvas
 	 */
 	@Override
-	public void save(PictureCanvasDTO canvas) throws Exception {
-		canvasDAO.save(canvas.clone(
+	public Long save(PictureCanvasDTO canvas) throws Exception {
+		return canvasDAO.save(canvas.clone(
 				PictureCanvasDO.class));
 	}
 

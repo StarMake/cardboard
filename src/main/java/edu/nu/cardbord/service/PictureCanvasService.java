@@ -18,7 +18,7 @@ public interface PictureCanvasService {
 	/**
 	 * 创建一个新的画布
 	 */
-	void save(PictureCanvasDTO canvas) throws Exception;
+	Long save(PictureCanvasDTO canvas) throws Exception;
 	
 	/**
 	 * 更新一个画布信息

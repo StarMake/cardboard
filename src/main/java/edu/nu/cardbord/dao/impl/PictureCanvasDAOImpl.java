@@ -28,10 +28,11 @@ public class PictureCanvasDAOImpl implements PictureCanvasDAO {
 	 * 新增一个画布
 	 */
 	@Override
-	public void save(PictureCanvasDO canvas) throws Exception {
+	public Long save(PictureCanvasDO canvas) throws Exception {
 		canvas.setGmtCreate(dateProvider.getCurrentTime());
 		canvas.setGmtModified(dateProvider.getCurrentTime());
 		canvasMapper.save(canvas);
+		return canvas.getId();
 	}
 
 	/**

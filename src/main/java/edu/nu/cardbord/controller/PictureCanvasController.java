@@ -53,13 +53,12 @@ public class PictureCanvasController {
 	 * 新建一个canvas
 	 */
 	@PostMapping("/")
-	public Boolean save(@RequestBody PictureCanvasVO canvas) {
+	public Long save(@RequestBody PictureCanvasVO canvas) {
 		try {
-			canvasService.save(canvas.clone(PictureCanvasDTO.class));
-			return true;
+			return canvasService.save(canvas.clone(PictureCanvasDTO.class));
 		} catch (Exception e) {
 			logger.error("error", e);
-			return false;
+			return null;
 		}
 	}
 	
