@@ -38,7 +38,6 @@ public interface UserAccountMapper {
 	
 	/**
 	 * 为登录来统计是否有对应的账号在
-	 * @param userAccount 用户账号
 	 */
 	@Select("SELECT "
 				+ "id,"

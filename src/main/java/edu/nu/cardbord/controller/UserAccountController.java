@@ -59,7 +59,7 @@ public class UserAccountController {
 	 * @param userAccount 用户账号
 	 * @return
 	 */
-	@GetMapping("/login")  
+	@PostMapping("/login")
 	public UserAccountVO login(@RequestBody UserAccountVO userAccount) {
 		try {
 			UserAccountDTO resultUserAccount = userAccountService.getForLogin(
