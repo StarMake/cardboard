@@ -10,7 +10,7 @@ public interface PictureCharacterDAO {
 	/**
 	 * 新增一个character
 	 */
-	Long save(PictureCharacterDO character) throws Exception;
+	PictureCharacterDO save(PictureCharacterDO character) throws Exception;
 	
 	/**
 	 * 查询指定画板上的character

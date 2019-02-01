@@ -12,7 +12,7 @@ public interface PictureSliceDAO {
 	/**
 	 * 新增一个slice
 	 */
-	Long save(PictureSliceDO slice) throws Exception;
+	PictureSliceDO save(PictureSliceDO slice) throws Exception;
 	
 	/**
 	 * 更新slice的位置

@@ -26,8 +26,8 @@ public class PictureSliceServiceImpl implements PictureSliceService {
 	 * 新增一个slice
 	 */
 	@Override
-	public Long save(PictureSliceDTO slice) throws Exception {
-		return sliceDAO.save(slice.clone(PictureSliceDO.class));
+	public PictureSliceDTO save(PictureSliceDTO slice) throws Exception {
+		return sliceDAO.save(slice.clone(PictureSliceDO.class)).clone(PictureSliceDTO.class);
 	}
 
 	/**

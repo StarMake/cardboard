@@ -7,7 +7,7 @@ import edu.nu.cardbord.domain.PictureCharacterDTO;
  */
 public interface PictureCharacterService {
 
-	Long save(PictureCharacterDTO character) throws Exception;
+	PictureCharacterDTO save(PictureCharacterDTO character) throws Exception;
 	
 	void remove(Long id) throws Exception;
 	

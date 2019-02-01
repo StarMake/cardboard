@@ -10,7 +10,7 @@ public class BeanCopierUtils {
 	/**
 	 * BeanCopier缓存
 	 */
-	public static Map<String, BeanCopier> beanCopierCacheMap = 
+	public static final Map<String, BeanCopier> beanCopierCacheMap = 
 			new HashMap<String, BeanCopier>();
 	
 	/**

@@ -28,11 +28,11 @@ public class PictureSliceDAOImpl implements PictureSliceDAO {
 	 * 新增一个slice
 	 */
 	@Override
-	public Long save(PictureSliceDO slice) throws Exception {
+	public PictureSliceDO save(PictureSliceDO slice) throws Exception {
 		slice.setGmtCreate(dateProvider.getCurrentTime());
 		slice.setGmtModified(dateProvider.getCurrentTime());
 		sliceMapper.save(slice);
-		return slice.getId();
+		return slice;
 	}
 
 	/**

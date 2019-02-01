@@ -35,12 +35,13 @@ public class PictureCardController {
 	 * 创建一个卡片
 	 */
 	@PostMapping("/")
-	public Long save(@RequestBody PictureCardVO card) {
+	public PictureCardVO save(@RequestBody PictureCardVO card) {
 		try {
-			return cardService.save(card.clone(PictureCardDTO.class));
+			return cardService.save(card.clone(PictureCardDTO.class))
+					.clone(PictureCardVO.class);
 		} catch (Exception e) {
 			logger.error("error", e);
-			return -1L;
+			return new PictureCardVO();
 		}
 	}
 	

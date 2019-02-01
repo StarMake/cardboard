@@ -21,7 +21,6 @@ import edu.nu.cardbord.domain.UserAccountVO;
 import edu.nu.cardbord.service.UserAccountService;
 
 /**
- * 
  * @author distribute
  */
 @RestController

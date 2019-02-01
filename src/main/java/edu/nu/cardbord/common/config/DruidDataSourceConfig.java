@@ -4,6 +4,8 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +15,9 @@ import com.alibaba.druid.pool.DruidDataSource;
 
 @Configuration
 public class DruidDataSourceConfig {
+	
+	private static final Logger logger = LoggerFactory
+			.getLogger(DruidDataSourceConfig.class);
 
 	@Value("${spring.datasource.url}")  
     private String dbUrl;  
@@ -75,7 +80,7 @@ public class DruidDataSourceConfig {
         try {  
             datasource.setFilters(filters);  
         } catch (SQLException e) {  
-            e.printStackTrace();
+            logger.error("error", e);
         }  
         
         datasource.setConnectionProperties(connectionProperties);  

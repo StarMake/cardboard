@@ -34,12 +34,12 @@ public class PictureSliceController {
 	 * 创建一个slice
 	 */
 	@PostMapping("/")
-	public Long save(@RequestBody PictureSliceVO slice) {
+	public PictureSliceVO save(@RequestBody PictureSliceVO slice) {
 		try {
-			return sliceService.save(slice.clone(PictureSliceDTO.class));
+			return sliceService.save(slice.clone(PictureSliceDTO.class)).clone(PictureSliceVO.class);
 		} catch (Exception e) {
 			logger.error("error", e);
-			return -1L;
+			return new PictureSliceVO();
 		}
 	}
 	

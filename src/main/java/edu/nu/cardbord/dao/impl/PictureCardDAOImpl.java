@@ -32,11 +32,11 @@ public class PictureCardDAOImpl implements PictureCardDAO {
 	 * 新增一个card
 	 */
 	@Override
-	public Long save(PictureCardDO card) throws Exception {
+	public PictureCardDO save(PictureCardDO card) throws Exception {
 		card.setGmtCreate(dateProvider.getCurrentTime());
 		card.setGmtModified(dateProvider.getCurrentTime());
 		pictureCardMapper.save(card);
-		return card.getId();
+		return card;
 	}
 
 	/**

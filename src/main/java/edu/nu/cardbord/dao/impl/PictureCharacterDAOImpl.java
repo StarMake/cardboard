@@ -28,11 +28,11 @@ public class PictureCharacterDAOImpl implements PictureCharacterDAO {
 	 * 新增一个character
 	 */
 	@Override
-	public Long save(PictureCharacterDO character) throws Exception {
+	public PictureCharacterDO save(PictureCharacterDO character) throws Exception {
 		character.setGmtCreate(dateProvider.getCurrentTime());
 		character.setGmtModified(dateProvider.getCurrentTime());
 		characterMapper.save(character);
-		return character.getId();
+		return character;
 	}
 
 	/**

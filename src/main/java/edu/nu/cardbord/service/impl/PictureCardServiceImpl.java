@@ -26,8 +26,9 @@ public class PictureCardServiceImpl implements PictureCardService {
 	 * 创建一个新的卡片
 	 */
 	@Override
-	public Long save(PictureCardDTO card) throws Exception {
-		return pictureCardDAO.save(card.clone(PictureCardDO.class));
+	public PictureCardDTO save(PictureCardDTO card) throws Exception {
+		return pictureCardDAO.save(card.clone(PictureCardDO.class))
+				.clone(PictureCardDTO.class);
 	}
 
 	/**

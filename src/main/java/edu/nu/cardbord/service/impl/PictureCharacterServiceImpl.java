@@ -20,8 +20,9 @@ public class PictureCharacterServiceImpl implements PictureCharacterService {
 	private PictureCharacterDAO characterDAO;
 	
 	@Override
-	public Long save(PictureCharacterDTO character) throws Exception {
-		return characterDAO.save(character.clone(PictureCharacterDO.class));
+	public PictureCharacterDTO save(PictureCharacterDTO character) throws Exception {
+		return characterDAO.save(character.clone(PictureCharacterDO.class))
+				.clone(PictureCharacterDTO.class);
 	}
 
 	@Override

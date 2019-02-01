@@ -14,7 +14,7 @@ public interface PictureCardDAO {
 	/**
 	 * 新增一个card
 	 */
-	Long save(PictureCardDO card) throws Exception;
+	PictureCardDO save(PictureCardDO card) throws Exception;
 	
 	/**
 	 * 更新卡片

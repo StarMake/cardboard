@@ -29,12 +29,13 @@ public class PictureCharacterController {
 	 * 创建一个文本框
 	 */
 	@PostMapping("/")
-	public Long save(@RequestBody PictureCharacterVO character) {
+	public PictureCharacterVO save(@RequestBody PictureCharacterVO character) {
 		try {
-			return characterService.save(character.clone(PictureCharacterDTO.class));
+			return characterService.save(character.clone(PictureCharacterDTO.class))
+					.clone(PictureCharacterVO.class);
 		} catch (Exception e) {
 			logger.error("error", e);
-			return -1L;
+			return new PictureCharacterVO();
 		}
 	}
 	

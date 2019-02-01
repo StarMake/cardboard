@@ -10,7 +10,7 @@ public interface PictureCardService {
 	/**
 	 * 新建一个card
 	 */
-	Long save(PictureCardDTO card) throws Exception;
+	PictureCardDTO save(PictureCardDTO card) throws Exception;
 	
 	/**
 	 * 删除指定的card
