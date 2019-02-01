@@ -1,6 +1,0 @@
-projectKey=cardboard
-serverUrl=http://localhost:9000
-serverVersion=6.7.6.38781
-dashboardUrl=http://localhost:9000/dashboard/index/cardboard
-ceTaskId=AWioaJL28hcs9Q06Il8B
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AWioaJL28hcs9Q06Il8B
